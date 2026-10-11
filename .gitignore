@@ -1,0 +1,47 @@
+# 既定は「同期しない」。同期したいものだけを下で明示的に拾う（許可リスト方式）。
+#
+# 理由: Claude Code はセッションごとにマシンローカルの成果物を増やし続ける
+# （tool-results/, *.desktop-released.json, paste-cache/, todos/ …）。除外側を
+# 書き足す運用では必ず取りこぼす。既定を「無視」にすれば、新種が増えても
+# 放置で正しく除外され、追記が要るのは「同期したい設定が新設されたとき」だけになる。
+# 失敗の向きも安全側（誤って同期される、ではなく、同期されない）に倒れる。
+#
+# 同期対象を増やすときは、下の許可リストに 1 行足す。
+# `.credentials.json` は決して足さないこと（OAuth リフレッシュトークンはシングルユースで、
+# 2 台で共有すると認証エラーになる。各マシンで個別に `claude login` する）。
+
+/*
+
+# --- 同期する設定 ---
+!/.gitignore
+!/README.md
+!/LICENSE
+!/CLAUDE.md
+!/estimate-log.md
+!/settings.example.json
+!/keybindings.json
+!/hooks/
+!/skills/
+!/agents/
+!/commands/
+!/output-styles/
+
+# settings.json と projects/（会話履歴・メモリ）は同期しない（ユーザー判断 2026-10-12）。
+# このリポジトリは公開しており、settings.json には許可したコマンドの履歴が、
+# projects/ には会話とメモリが入るため。フックの登録の見本は settings.example.json。
+# plans/（plan モードの計画）も開発中の作業の中身が入るので同期しない。
+
+# --- skills/ は手作りのスキルだけ同期する ---
+# skills/synced/ は Anthropic が配信するスキル（xlsx・pdf・docx・pptx ほか 207 ファイル）。
+# 両マシンに自動で降ってきて毎回更新され、親ディレクトリ名もアカウント固有の UUID なので
+# 同期しない（ユーザー指示 2026-09-24）。.DS_Store のような雑多なファイルも、
+# 除外行を足して追いかけるのではなく既定の「無視」に任せる。
+#
+# 手作りのスキルを新設したら、ここに 1 行足すこと。足し忘れると黙って同期されない。
+/skills/*
+!/skills/claude-chat-export/
+!/skills/mac-sleep/
+!/skills/qiita-post/
+!/skills/qiita-writer/
+!/skills/session-handover/
+!/skills/yomiyasu/

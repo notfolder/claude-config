@@ -1,0 +1,45 @@
+# ~/.claude の第 1 階層のうち、「同期しない」と判断済みのエントリ。
+#
+# .gitignore は許可リスト方式（既定は同期しない）なので、新種のファイルは黙って
+# 同期対象から外れる。取りこぼしに気づけるよう、sync-check.sh が
+#   「許可リストにも このファイルにも 無い、非空の第 1 階層エントリ」
+# だけを SessionStart で報告する。報告されたら、どちらかに振り分けること:
+#   - 同期したい設定       → .gitignore の許可リストに `!/名前` を足す
+#   - マシンローカルの成果物 → このファイルに 1 行足す
+#
+# 1 行 1 エントリ（第 1 階層の名前そのまま、スラッシュ無し）。`#` 始まりは注釈。
+# 2 台のどちらかにしか無いものも書いてよい（存在しない行は単に無視される）。
+
+# 認証情報（各マシンで個別に claude login する。共有すると認証エラーになる）
+.credentials.json
+
+# マシンローカルの状態・キャッシュ（自動再生成される、または他マシンでは無意味）
+.DS_Store
+.last-cleanup
+.last-update-result.json
+backups
+cache
+chrome
+downloads
+file-history
+ide
+mcp-needs-auth-cache.json
+paste-cache
+plugins
+session-env
+sessions
+shell-snapshots
+state
+statsig
+telemetry
+todos
+
+# 会話履歴・セッション成果物（remote 機能で共有できるため同期不要）
+history.jsonl
+uploads
+
+# マシンごとに持つ設定・会話履歴・メモリ（公開リポジトリなので同期しない。2026-10-12）
+settings.json
+settings.local.json
+projects
+plans
