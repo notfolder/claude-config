@@ -23,7 +23,7 @@
 次のコマンドで`~/.claude`にcloneします。
 
 ```sh
-git clone git@github.com:notfolder/claude-config.git ~/.claude
+git clone https://github.com/notfolder/claude-config.git ~/.claude
 ```
 
 ### `~/.claude`がすでにあるマシン
@@ -41,7 +41,7 @@ https://github.com/notfolder/claude-config を ~/.claude に取り込み、手�
 
 1. 退避: ~/.claude/.git があれば ~/.claude-git-old に移す。
    CLAUDE.md・hooks/・skills/ を ~/.claude-CLAUDE.md.bak・~/.claude-hooks.bak・~/.claude-skills.bak にコピーする。
-2. 取り込み: ~/.claude で git init -b main、origin に git@github.com:notfolder/claude-config.git を足し、
+2. 取り込み: ~/.claude で git init -b main、origin に https://github.com/notfolder/claude-config.git を足し、
    fetch してから git reset --mixed origin/main で HEAD だけを合わせ、git branch --set-upstream-to=origin/main する。
    この時点では手元のファイルに触れない。
 3. 差分の一覧: git status と git diff で、リポジトリにしか無いファイル・中身が違うファイル・
