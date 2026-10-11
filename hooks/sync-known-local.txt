@@ -21,6 +21,7 @@ backups
 cache
 chrome
 downloads
+feedback
 file-history
 ide
 mcp-needs-auth-cache.json
