@@ -72,8 +72,8 @@ while IFS= read -r f; do
   if [ "$n" -ge "$LIMIT" ]; then
     over=1
     echo "[claude-md-lines] $f は $n 行（$b バイト）で、上限 $LIMIT 行以上です。" >&2
-    echo "  毎回読む必要がある決まりだけを 1 項目 1 行で残し、経緯・引用・具体例・失った時間は" >&2
-    echo "  docs/rules/ に移してリンクにしてください（skills/session-handover/SKILL.md 手順 4）。" >&2
+    echo "  毎回読む必要がある決まりだけを 1 項目 1 行で残し、重なる決まりをまとめる案と" >&2
+    echo "  要らなくなった決まりを消す案をユーザーに出してください（skills/session-handover/SKILL.md 手順 4）。" >&2
   fi
 done <<< "$targets"
 
