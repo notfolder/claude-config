@@ -16,9 +16,9 @@ Closed-Display Mode の実体は `pmset disablesleep` だが、これを Ampheta
 警告文を持っている（"An Amphetamine session is not currently active, but Power Protect is enabled
 and is keeping your Mac awake"）。
 
-2026-08-30 にこれを実行した結果、**Amphetamine が蓋閉じ動作の制御を握ったまま解放せず、
-通常のクラムシェルモード（外部ディスプレイ+AC電源）が使えなくなる障害が発生した。**
-Amphetamine を再起動するまで復旧しなかった。永続設定には痕跡が残らないため原因特定も難しい。
+これを実行すると、**Amphetamine が蓋閉じ動作の制御を握ったまま解放せず、
+通常のクラムシェルモード（外部ディスプレイ+AC電源）が使えなくなる。**
+Amphetamine を再起動するまで復旧しない。永続設定には痕跡が残らないため原因特定も難しい。
 
 解除は必ず **Amphetamine 自身にやらせる**こと。
 

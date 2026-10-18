@@ -91,7 +91,7 @@ GET /api/organizations/<org_uuid>/files/<file_uuid>/contents
 
 9. **Claude in Chrome の `javascript_tool` では大きな本文を持ち出せない。**
    API はページ内から叩けるが、戻り値に Base64 や URL のクエリ文字列が含まれると
-   拡張の安全フィルタが `[BLOCKED: ...]` に差し替える（2026-10-10 に確認）。
+   拡張の安全フィルタが `[BLOCKED: ...]` に差し替える。
    構造の確認や SHA-256 の計算には使えるので、本文は `fetch.mjs` か画面の
    ダウンロードで取り、ページ内で計算したハッシュと突き合わせる。
 
