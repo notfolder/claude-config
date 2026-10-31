@@ -19,7 +19,6 @@
 !/CLAUDE.md
 !/estimate-log.md
 !/settings.example.json
-!/keybindings.json
 !/hooks/
 !/skills/
 !/agents/
@@ -30,6 +29,7 @@
 # このリポジトリは公開しており、settings.json には許可したコマンドの履歴が、
 # projects/ には会話とメモリが入るため。フックの登録の見本は settings.example.json。
 # plans/（plan モードの計画）も開発中の作業の中身が入るので同期しない。
+# keybindings.json はマシンにあるアプリ（Orca.app など）が書き込むので、マシンごとに持つ。
 
 # --- skills/ は手作りのスキルだけ同期する ---
 # skills/synced/ は Anthropic が配信するスキル（xlsx・pdf・docx・pptx ほか 207 ファイル）。

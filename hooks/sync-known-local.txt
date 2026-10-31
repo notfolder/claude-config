@@ -44,3 +44,4 @@ settings.json
 settings.local.json
 projects
 plans
+keybindings.json
